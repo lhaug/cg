@@ -102,19 +102,19 @@ def calcNewLine(Line, lineC, clipRegion):
         if (lineC & 0x8):   #SP mit ymax
             new = sp_y(Line, clipRegion[1][1])
             print(1)
-            return calcNewLine(new, lineCase(new), clipRegion)
+            return calcNewLine(new, lineC-8, clipRegion)
         elif (lineC & 0x4):   #SP mit ymin
             new = sp_y(Line, clipRegion[0][1])
             print(2)
-            return calcNewLine(new, lineCase(new), clipRegion)
+            return calcNewLine(new, lineC-4, clipRegion)
         elif (lineC & 0x2):   #SP mit xmax
             print(3)
             new = sp_x(Line, clipRegion[1][0])
-            return calcNewLine(new, lineCase(new), clipRegion)
+            return calcNewLine(new, lineC-2, clipRegion)
         elif (lineC & 0x1):   #SP mit xmin
             print(4)
             new = sp_x(Line, clipRegion[0][0])
-            return calcNewLine(new, lineCase(new), clipRegion)
+            return calcNewLine(new, lineC-1, clipRegion)
         return []
 
 def sp_x(line, x):
